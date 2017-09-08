@@ -19,13 +19,13 @@ import Stage from './stage';
 import Obstacles from './obstacles';
 import Coins from './coins'
 
-const game = new Phaser.Game(800, 600, Phaser.AUTO, '', {
+const game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, '', {
   preload: preload,
   create: create,
   update: update
 });
 
-let player, obstacles, coins, stage, score;
+let player, obstacles, coins, stage, coinsInterval;
 
 function preload () {
   const assets = new AssetsLoader(game);

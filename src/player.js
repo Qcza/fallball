@@ -8,7 +8,7 @@ class Player {
   }
 
   createPlayer (sprite) {
-    let player = this.game.add.sprite(400, 200, sprite);
+    let player = this.game.add.sprite((this.game.width/2)-16, (this.game.height/2)-16, sprite);
     this.game.physics.arcade.enable(player);
     player.body.gravity.y = 500;
     player.body.collideWorldBounds = true;
