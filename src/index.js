@@ -35,7 +35,7 @@ function create () {
 
     const obstacle = obstacles.create(Math.floor(Math.random()*700)+1,(Math.floor(Math.random()*500)+50),'obstacle01');
     game.physics.arcade.overlap(obstacle, obstacles, ()=>{
-      obstacle.kill();
+      obstacles.remove(obstacle);
       o--
     }, null, this);
     // coin.body.gravity.y = 300;
@@ -50,10 +50,10 @@ function create () {
 
     const coin = coins.create(Math.floor(Math.random()*700)+1,(Math.floor(Math.random()*500)+1),'coin');
     coin.animations.add('spin');
-    coin.animations.play('spin', 30, true)
+    coin.animations.play('spin', 30, true);
 
     game.physics.arcade.overlap(coin, obstacles, ()=>{
-      coin.kill();
+      coins.remove(coin);
       i--
     }, null, this);
 
@@ -106,7 +106,7 @@ function getCoin (player, coin) {
   coin.kill();
   score += 1;
   scoreText.text = `Collected ${score} coins.`;
-  if (score === 10) {
+  if (score === coins.length) {
     game.add.text(250, 250, 'YOU WIN!', { fontSize: '64px', fill: '#000' });
   }
 }
