@@ -1,7 +1,7 @@
 class Coins {
-  constructor (game) {
+  constructor (game, obstacles) {
     this.game = game;
-    this.coins = this.createCoins();
+    this.coins = this.createCoins(obstacles);
     this.score = 0;
     this.scoreText = this.setDialog();
   }

@@ -36,7 +36,7 @@ function create () {
   stage = new Stage(game);
   player = new Player(game);
   obstacles = new Obstacles(game);
-  coins = new Coins(game);
+  coins = new Coins(game, obstacles.obstacles);
 }
 
 function update () {
